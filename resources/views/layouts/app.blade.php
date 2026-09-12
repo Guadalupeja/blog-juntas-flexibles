@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@hasSection('title')@yield('title') · @endif{{ config('app.name', 'Blog Juntas Flexibles') }}</title>
+        <title>{{ $__env->hasSection('title') ? trim($__env->yieldContent('title')) . "\u{00A0}· " . config('app.name', 'Blog Juntas Flexibles') : config('app.name', 'Blog Juntas Flexibles') }}</title>
         <meta name="description" content="@yield('meta_description', 'Blog técnico de BSH sobre juntas de expansión: materiales, normativas de bridas, refuerzo y mantenimiento.')">
 
         <!-- Fonts -->
