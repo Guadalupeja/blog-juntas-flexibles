@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Blog Juntas Flexibles') }}</title>
+        <title>@hasSection('title')@yield('title') · @endif{{ config('app.name', 'Blog Juntas Flexibles') }}</title>
+        <meta name="description" content="@yield('meta_description', 'Blog técnico de BSH sobre juntas de expansión: materiales, normativas de bridas, refuerzo y mantenimiento.')">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

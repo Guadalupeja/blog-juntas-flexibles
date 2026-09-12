@@ -40,6 +40,8 @@ class AdminPostController extends Controller
                 'title'   => 'required|max:255',
                 'content' => 'required',
                 'image'   => 'nullable|image',
+                'meta_title' => 'nullable|max:255',
+                'meta_description' => 'nullable|max:320',
             ]);
     
             // Crear slug a partir del título
@@ -64,6 +66,8 @@ class AdminPostController extends Controller
                 'slug'    => $slug,
                 'content' => $request->content,
                 'image'   => $imageName,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
             ]);
     
             return redirect()->route('admin.posts.index')
@@ -83,6 +87,8 @@ class AdminPostController extends Controller
                'title' => 'required|string|max:255',
                'content' => 'required|string',
                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+               'meta_title' => 'nullable|string|max:255',
+               'meta_description' => 'nullable|string|max:320',
            ]);
        
            // Si el usuario sube una nueva imagen
@@ -102,6 +108,8 @@ class AdminPostController extends Controller
                'title' => $request->title,
                'content' => $request->content,
                'image' => $post->image ?? $post->getOriginal('image'), // Mantener imagen si no se cambia
+               'meta_title' => $request->meta_title,
+               'meta_description' => $request->meta_description,
            ]);
        
            return redirect()->route('admin.posts.index')->with('success', 'Post actualizado correctamente.');

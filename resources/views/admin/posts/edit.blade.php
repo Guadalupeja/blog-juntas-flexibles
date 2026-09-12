@@ -40,6 +40,26 @@
                    class="mt-2 block w-full p-2 border border-gray-300 rounded-lg focus:ring-[#073E81] focus:border-[#073E81]">
         </div>
     
+
+        <!-- SEO -->
+        <div class="border-t pt-6 mt-2">
+            <h2 class="text-lg font-semibold text-gray-700 mb-3">SEO (opcional)</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="meta_title" class="block text-sm font-semibold text-gray-600">Meta título</label>
+                    <input type="text" name="meta_title" id="meta_title" maxlength="255" value="{{ $post->meta_title }}"
+                           placeholder="Si se deja vacío, se usa el título del post"
+                           class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:ring-[#073E81] focus:border-[#073E81]">
+                </div>
+                <div>
+                    <label for="meta_description" class="block text-sm font-semibold text-gray-600">Meta descripción</label>
+                    <textarea name="meta_description" id="meta_description" rows="2" maxlength="320"
+                              placeholder="Si se deja vacío, se genera automáticamente del contenido"
+                              class="mt-2 block w-full p-3 border border-gray-300 rounded-lg focus:ring-[#073E81] focus:border-[#073E81]">{{ $post->meta_description }}</textarea>
+                </div>
+            </div>
+        </div>
+
         <!-- Botón de enviar -->
         <div class="text-center">
             <button type="submit" class="px-6 py-3 bg-[#073E81] text-white font-semibold rounded-lg hover:bg-blue-900 transition">
